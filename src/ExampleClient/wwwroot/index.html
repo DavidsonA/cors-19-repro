@@ -1,0 +1,27 @@
+﻿<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
+    <script>
+        $(function() {
+            $.ajax({
+                dataType: "json",
+                type: "POST",
+                contentType: "application/json",
+                url: "http://localhost:8000/Api/Values",
+                data: JSON.stringify({ bar: 1, baz: "Yep." }),
+                success: function() {
+                    console.log("success");
+                    $("body").html("It's working!");
+                },
+                error: function() {
+                    console.log("failure");
+                },
+                xhrFields: {
+                    withCredentials: true
+                }
+            });
+        });
+    </script>
+</head>
+<p>See developer console for error details.</p>
+</html>
